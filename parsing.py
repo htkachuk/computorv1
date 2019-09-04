@@ -15,21 +15,21 @@ def parse(polinom, input_str, i):
     sub = ''
     i += 1
     k = 0
+    start = i
 
     while i < len(input_str):
-        if input_str[i] == '+' and i != 0:
+        if input_str[i] == '+' and i != start:
             sub = add_symbol(sub, '-')
             polinom.append(sub)
             sub = '-'
             k = 1
             i += 1
-        if input_str[i] == '-' and i != 0:
+        elif input_str[i] == '-' and i != start:
             sub = add_symbol(sub, '-')
-            if sub[0] != '+' and sub[0] != '-':
-                '-' + sub
             polinom.append(sub)
             sub = '+'
-        sub += input_str[i]
+        else:
+            sub += input_str[i]
         i += 1
 
     return check_sub(polinom, sub, '-')
