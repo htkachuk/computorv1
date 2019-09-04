@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 from copy import deepcopy
 
@@ -7,7 +9,11 @@ from solving import solve_polinom
 
 
 def main():
-    parse_input(sys.argv[1])
+    try:
+        parse_input(sys.argv[1])
+    except:
+        print("usage:\npython3 computorv1.py \"5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0\"")
+        return
     try:
         polinom, err = parse_input(sys.argv[1])
     except:
